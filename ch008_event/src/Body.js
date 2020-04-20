@@ -1,0 +1,19 @@
+import React from 'react';
+
+export default props => {
+    console.log(props.data && props.data.movies);
+    return <article>
+        <h3>후보</h3>
+        <ul>
+            {
+                props.data && props.data.movies && props.data.movies.length > 0 ? props.data.movies.map((movie, i) => (
+                    <li key={i} no={movie.id} onClick={props.vote}>
+                        {movie.title}
+                    </li>
+                )) : (
+                    <li>데이터가 없습니다.</li>
+                )
+            }
+        </ul>
+    </article>;
+};
